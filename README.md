@@ -17,7 +17,7 @@ object SumSpec extends Specification {
 }
 ```
 
-> This is something we all comfortable with. This is how we started to learn about TDD.
+> This is something we are all comfortable with. This is how we started to learn about TDD.
 > We start from the most simple test case and build up on it by providing more and more examples:
 > `0 + 0` must be `0`, `1 + 0` must be `1`, `2 + 2` must be `4`
 
@@ -28,6 +28,11 @@ Now, let's get out of the comfort zone and see what is ScalaCheck and **property
       Sum(x, y) == x + y
   }
 ```
+
+> In this little example we define a new property 'sum'
+> Further we are saying that forAll possible values of x and y **of type Int**
+> we want this property to hold
+
 Once we run this test, we will see this
 ```zsh
 > test
@@ -37,7 +42,7 @@ Once we run this test, we will see this
 ```
 
 Hey hey, but what's happened actually? what did we just test? 
-With scalacheck you can easily classify and collect generated results to validate the input.
+With scalacheck you can easily classify and collect generated input to validate the input.
 
 ```scala
   property("sum") = forAll{ (x: Int, y: Int) ⇒
